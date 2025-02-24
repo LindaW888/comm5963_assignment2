@@ -5,12 +5,12 @@ from static import PREDICTOR_COLUMNS, TARGET_COLUMN, TARGET_CLASS_DICT
 
 
 def run_decision_tree(train_x, train_y, test_x, test_y):
-    # Use df_iris and run a classification by constructing a decision tree
+    # Run a classification by constructing a decision tree
     # Please set the random_state to 5963
     print(f'[Decision Tree] Use {PREDICTOR_COLUMNS} to predict: {TARGET_COLUMN}')
 
 def run_random_forest(train_x, train_y, test_x, test_y):
-    # Use df_iris and run a classification by constructing a random forest
+    # Run a classification by constructing a random forest
     # Please set the random_state to 5963
     print(f'[Random Forest] Use {PREDICTOR_COLUMNS} to predict: {TARGET_COLUMN}')
 
