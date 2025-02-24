@@ -49,9 +49,8 @@ def train_model(x_tensor, y_tensor) -> torch.nn.Sequential:
     torch.manual_seed(5963)
     # Configurable: Your model structure
     model = torch.nn.Sequential(
-        torch.nn.Linear(len(PREDICTOR_COLUMNS), 10),  # Input 4 predictors, Output 10 neurons
-        torch.nn.ReLU(),
-        torch.nn.Linear(10, len(TARGET_CLASS_DICT))   # Input 10 neurons, Output 3 classes (Setosa, Versicolor, Verginica)
+        torch.nn.Linear(len(PREDICTOR_COLUMNS), 8),  # Input 4 predictors, Output 8 neurons
+        torch.nn.Linear(8, len(TARGET_CLASS_DICT))   # Input 8 neurons, Output 3 classes (Setosa, Versicolor, Verginica)
     )
     # Cross Entropy Loss is used for classification
     loss_function = torch.nn.CrossEntropyLoss()
