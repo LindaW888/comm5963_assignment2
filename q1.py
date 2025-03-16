@@ -2,6 +2,7 @@ import sklearn
 import torch
 from utils import load_train_test_datasets
 from static import PREDICTOR_COLUMNS, TARGET_COLUMN, TARGET_CLASS_DICT
+from sklearn.model_selection import train_test_split
 
 def run_prediction(_model, x_tensor):
     # Given a model and input, predict the corresponding output
@@ -27,16 +28,17 @@ def train_model(x_tensor, y_tensor) -> torch.nn.Sequential:
     # Configurable: Your model structure
     model = torch.nn.Sequential(
         torch.nn.Linear(len(PREDICTOR_COLUMNS), 8),  # Input 4 predictors, Output 8 neurons
+        torch.nn.ReLU(),
         torch.nn.Linear(8, len(TARGET_CLASS_DICT))   # Input 8 neurons, Output 3 classes (Setosa, Versicolor, Verginica)
     )
     # Cross Entropy Loss is used for classification
     loss_function = torch.nn.CrossEntropyLoss()
 
     # Configurable: Hyper-parameters
-    num_epochs = 10
-    learning_rate = 0.8
+    num_epochs = 100
+    learning_rate = 0.03
     # Configurable: optimizer
-    optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
+    optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, momentum=1)
 
     # Start training
     for epoch in range(num_epochs):
