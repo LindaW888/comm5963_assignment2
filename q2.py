@@ -8,7 +8,7 @@ from sklearn import metrics
 from sklearn.ensemble import RandomForestClassifier
 
 # usage of Copilot
-# how to calculate accuracy of train and test data
+# how to calculate accuracy of train and test data via copilot
 def run_decision_tree(train_x, train_y, test_x, test_y):
     # Run a classification by constructing a decision tree
     # Please set the random_state to 5963
